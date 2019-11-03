@@ -9,12 +9,14 @@ module.exports = {
     },
 
     async createPlace(req, res) {
-        const { localidade, latitude, longitude } = req.body
+        const { localidade, latitude, longitude, disaster, description } = req.body
 
         const place = await Place.create({
             localidade,
             latitude,
-            longitude
+            longitude,
+            disaster,
+            description
         })
 
         return res.json(place)
